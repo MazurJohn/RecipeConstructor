@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, update, onValue } from "firebase/database";
+import { getDatabase, ref, update, onValue } from "firebase/database";
 import {
   getAuth,
   createUserWithEmailAndPassword,
