@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  color: #2b3252;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background: #ffffff;
+  background-size: cover;
+}
+
+nav {
+  background: #ef5455;
+  box-shadow: 5px 5px 1px 5px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: end;
+  margin-right: 10px;
+}
+
+ul li {
+  padding: 10px;
+  color: #2b3252;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ul li:hover {
+  color: aliceblue;
+}
+
+.main-screen {
+  display: flex;
+}
+
+.registration {
+  z-index: 10;
+  background: #fad744;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-screen {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background: #ef5455;
+  border: 1px solid #2b3252;
+  border-radius: 5px;
+  box-shadow: 5px 5px 1px 1px;
+}
+
+.reg-screen h1 {
+  padding: 10px;
+  text-align: center;
+  font-size: 26px;
+}
+
+#registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#registration-form label,
+input,
+button {
+  margin: 0;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+}
+
+#registration-form button {
+  margin-bottom: 10px;
+  background: #fad744;
+  cursor: pointer;
+}
+
+.switch-login {
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.login {
+  z-index: 9;
+  background: #fad744;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-screen {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background: #ef5455;
+  border: 1px solid #2b3252;
+  border-radius: 5px;
+  box-shadow: 5px 5px 1px 1px;
+}
+
+.log-screen h1 {
+  padding: 10px;
+  text-align: center;
+  font-size: 26px;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-form label,
+input,
+button {
+  margin: 0;
+  padding: 10px;
+  border: none;
+  font-size: 20px;
+}
+
+#login-form button {
+  margin-bottom: 10px;
+  background: #fad744;
+  cursor: pointer;
+}
+
+.switch-signup {
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.side-panel {
+  display: flex;
+  background-color: #fad744;
+  flex-direction: column;
+  width: 20%;
+  height: 1000px;
+  align-items: center;
+  border: 1px solid #2b3252;
+  border-radius: 5px;
+  margin: 20px;
+  box-shadow: 5px 5px 1px 1px;
+}
+
+.side-panel h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.side-panel input {
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid;
+  background: none;
+  padding: 5px;
+  font-size: 16px;
+  box-shadow: 5px 5px 1px 1px;
+}
+
+.ingredients {
+  background: #ef5455;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #2b3252;
+  border-radius: 5px;
+  padding-top: 2px;
+  width: 84%;
+  height: 100%;
+  margin: 20px;
+  box-shadow: 5px 5px 1px 1px;
+}
+
+.ingr-item {
+  background: #fad744;
+  border: 1px solid #2b3252;
+  border-radius: 5px;
+  width: 90%;
+  margin: 2px;
+  padding: 2px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.main-panel {
+  width: 80%;
+  display: flex;
+  background-color: #fad744;
+  flex-direction: column;
+  border: 1px solid #2b3252;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 1px 1px;
+}
+
+.main-panel h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.ingredients-main {
+  background: #ef5455;
+  width: 30%;
+  height: 100%;
+  border: 1px solid #2b3252;
+  margin: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 1px 1px;
+}
+
+.modal-add {
+  display: none;
+  flex-direction: column;
+  width: 500px;
+  background-color: #ef5455;
+  padding: 20px;
+  position: absolute;
+  right: 140px;
+  box-shadow: 5px 5px 1px 1px;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-add h1 {
+  font-size: 26px;
+}
+
+.modal-add input,
+textarea {
+  width: 100%;
+  padding: 0;
+  font-size: 16px;
+  background: #fad744;
+  border-radius: 0px 20px 20px 0px;
+  border: none;
+  resize: none;
+}
+
+.ingr-field input {
+  margin-top: 10px;
+}
+
+.add-btn {
+  width: 24px;
+  height: 24px;
+  background: #fad744;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.add-all-btn {
+  background: #fad744;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 100px;
+}
+
+.modal-add h1,
+label {
+  margin: 10px;
+}
+
+.modal-add button {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#recipe-desc {
+  height: 200px;
+}
+
+.bottom-window {
+  z-index: 11;
+  position: absolute;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ef5455;
+  bottom: 30px;
+  right: 30px;
+  border: 1px solid #2b3252;
+  border-radius: 5px;
+  width: 300px;
+  height: 70px;
+  box-shadow: 5px 5px 1px 1px;
+  transition: all 0.5s ease-in-out;
+}
+
+.bottom-window p {
+  margin: 10px;
+  font-size: 20px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.animate-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.animate-out {
+  animation: slideOut 0.3s ease-in-out;
+}
