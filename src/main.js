@@ -97,6 +97,8 @@ onAuthStateChanged(auth, (user) => {
       // Збереження текстового вмісту перетягуваного елемента
       event.dataTransfer.setData("text/plain", event.target.textContent);
 
+      event.target.setAttribute("data-ingredient", event.target.textContent);
+
       // Задання ефекту перетягування (copy або move)
       event.dataTransfer.effectAllowed = "move";
 
@@ -129,11 +131,13 @@ onAuthStateChanged(auth, (user) => {
       // Отримання текстового вмісту перетягуваного елемента
       const ingredient = event.dataTransfer.getData("text/plain");
 
-      // Переміщення елемента з початкового контейнера в новий контейнер
-      const paragraph = document.createElement("p");
-      paragraph.classList.add("ingr-item");
-      paragraph.textContent = ingredient;
-      mainContainer.appendChild(paragraph);
+      // Перевірка, чи існує елемент зі вмістом ingredient у першому контейнері
+      const paragraph = document.querySelector(
+        ".ingredients p.ingr-item[data-ingredient='" + ingredient + "']"
+      );
+      if (paragraph) {
+        paragraph.remove();
+      }
 
       // Видалення елемента з allIngredientsSet
       allIngredientsSet.delete(ingredient);
@@ -141,6 +145,12 @@ onAuthStateChanged(auth, (user) => {
       // Додавання елемента до newIngredientsSet
       newIngredientsSet.add(ingredient);
       console.log(newIngredientsSet);
+
+      // Створення нового <p> елемента в новому контейнері
+      const newParagraph = document.createElement("p");
+      newParagraph.classList.add("ingr-item");
+      newParagraph.textContent = ingredient;
+      event.target.appendChild(newParagraph);
     }
 
     function addRecipeToDb(title, user) {
