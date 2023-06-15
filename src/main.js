@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, update, onValue } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  update,
+  onValue,
+  orderByChild,
+} from "firebase/database";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -73,6 +79,11 @@ onAuthStateChanged(auth, (user) => {
 
     function showAllIngredients() {
       const container = document.querySelector(".ingredients");
+      const paragraphs = container.querySelectorAll("p");
+
+      paragraphs.forEach(function (paragraph) {
+        paragraph.remove();
+      });
 
       const sortedIngredients = Array.from(allIngredientsSet).sort();
 
@@ -150,7 +161,45 @@ onAuthStateChanged(auth, (user) => {
       const newParagraph = document.createElement("p");
       newParagraph.classList.add("ingr-item");
       newParagraph.textContent = ingredient;
+      newParagraph.addEventListener("click", function () {
+        newParagraph.remove();
+        newIngredientsSet.delete(ingredient);
+        allIngredientsSet.add(ingredient);
+        console.log(allIngredientsSet);
+        showAllIngredients();
+        searchRecipeInDb();
+      });
       event.target.appendChild(newParagraph);
+      searchRecipeInDb();
+    }
+
+    function searchRecipeInDb() {
+      const recipesRef = ref(database, "recipe");
+
+      // Перебирайте рецепти, використовуючи сортування за інгредієнтами
+      onValue(recipesRef, (snapshot) => {
+        const data = snapshot.val();
+
+        for (const userId in data) {
+          const userRecipes = data[userId];
+
+          for (const recipeId in userRecipes) {
+            const recipe = userRecipes[recipeId];
+            const recipeIngredients = recipe.ingredients;
+
+            // Перевіряємо, чи є хоча б одне співпадіння інгредієнтів зі Set
+            const hasMatch = recipeIngredients.some((ingredient) =>
+              newIngredientsSet.has(ingredient)
+            );
+
+            // Якщо є хоча б одне співпадіння, виводимо рецепт
+            if (hasMatch) {
+              console.log("Збіг з рецептом", recipe.title);
+              // Ваша додаткова логіка тут
+            }
+          }
+        }
+      });
     }
 
     function addRecipeToDb(title, user) {
