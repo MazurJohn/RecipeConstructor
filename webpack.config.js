@@ -4,13 +4,13 @@ module.exports = {
   mode: "development",
   entry: "./src/main.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "docs"),
     filename: "bundle.js",
     publicPath: "/",
   },
   devServer: {
     hot: true,
-    static: path.resolve(__dirname, "dist"),
+    static: path.resolve(__dirname, "docs"),
     port: 8080,
     devMiddleware: {
       writeToDisk: true,

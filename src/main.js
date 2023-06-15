@@ -44,6 +44,7 @@ onAuthStateChanged(auth, (user) => {
     const ingredientsArr = [];
     const recipeObj = new Object();
     const allIngredientsSet = new Set();
+    const newIngredientsSet = new Set();
 
     function setAllIngredients() {
       onValue(ref(database), (snapshot) => {
@@ -107,6 +108,39 @@ onAuthStateChanged(auth, (user) => {
     function handleDragEnd(event) {
       // Видалення класу для стилізації перетягуваного елемента
       event.target.classList.remove("dragging");
+    }
+
+    // Обробник події 'dragover' для нового контейнера
+    const mainContainer = document.querySelector(".ingredients-main");
+    mainContainer.addEventListener("dragover", handleDragOver);
+
+    // Обробник події 'drop' для нового контейнера
+    mainContainer.addEventListener("drop", handleDrop);
+
+    // Обробник події 'dragover' для дозволу на перетягування в новий контейнер
+    function handleDragOver(event) {
+      event.preventDefault();
+    }
+
+    // Обробник події 'drop' для розміщення елемента в новому контейнері
+    function handleDrop(event) {
+      event.preventDefault();
+
+      // Отримання текстового вмісту перетягуваного елемента
+      const ingredient = event.dataTransfer.getData("text/plain");
+
+      // Переміщення елемента з початкового контейнера в новий контейнер
+      const paragraph = document.createElement("p");
+      paragraph.classList.add("ingr-item");
+      paragraph.textContent = ingredient;
+      mainContainer.appendChild(paragraph);
+
+      // Видалення елемента з allIngredientsSet
+      allIngredientsSet.delete(ingredient);
+
+      // Додавання елемента до newIngredientsSet
+      newIngredientsSet.add(ingredient);
+      console.log(newIngredientsSet);
     }
 
     function addRecipeToDb(title, user) {
