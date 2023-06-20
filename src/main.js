@@ -196,6 +196,7 @@ onAuthStateChanged(auth, (user) => {
             if (hasMatch) {
               console.log("Збіг з рецептом", recipe.title);
               // Ваша додаткова логіка тут
+              document.querySelector(".recipe-info").innerHTML = recipe.title;
             }
           }
         }
