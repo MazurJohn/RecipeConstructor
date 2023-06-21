@@ -223,7 +223,56 @@ button {
 }
 
 .recipe-info {
-  width: 60%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.recipe-info div {
+  padding: 20px;
+  margin: 20px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.recipe-info h2 {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  text-align: center;
+}
+
+.modal h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  margin-bottom: 10px;
+}
+
+.highlighted-ingredient {
+  color: green;
+  font-weight: bold;
 }
 
 .ingredients-main {

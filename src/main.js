@@ -175,6 +175,8 @@ onAuthStateChanged(auth, (user) => {
 
     function searchRecipeInDb() {
       const recipesRef = ref(database, "recipe");
+      const recipeInfoElement = document.querySelector(".recipe-info");
+      recipeInfoElement.innerHTML = "";
 
       // Перебирайте рецепти, використовуючи сортування за інгредієнтами
       onValue(recipesRef, (snapshot) => {
@@ -195,12 +197,86 @@ onAuthStateChanged(auth, (user) => {
             // Якщо є хоча б одне співпадіння, виводимо рецепт
             if (hasMatch) {
               console.log("Збіг з рецептом", recipe.title);
-              // Ваша додаткова логіка тут
-              document.querySelector(".recipe-info").innerHTML = recipe.title;
+              // Ваша додаткова логіка тут;
+
+              const recipeDiv = document.createElement("div");
+
+              const recipeTitle = document.createElement("h2");
+              recipeTitle.textContent = recipe.title;
+              recipeTitle.addEventListener("click", () => {
+                openModal(recipe);
+              });
+              recipeDiv.appendChild(recipeTitle);
+
+              const ingredientsParagraph = document.createElement("p");
+              const ingredientsText = recipeIngredients
+                .map((ingredient) =>
+                  newIngredientsSet.has(ingredient)
+                    ? `<span class="highlighted-ingredient">${ingredient}</span>`
+                    : ingredient
+                )
+                .join(", ");
+              ingredientsParagraph.innerHTML =
+                "Інгредієнти: " + ingredientsText;
+              recipeDiv.appendChild(ingredientsParagraph);
+
+              const descriptionParagraph = document.createElement("p");
+              const descriptionText = truncateText(recipe.description, 5); // Обмеження до 10 слів
+              descriptionParagraph.textContent = "Опис: " + descriptionText;
+              recipeDiv.appendChild(descriptionParagraph);
+
+              recipeInfoElement.appendChild(recipeDiv);
             }
           }
         }
       });
+    }
+
+    function truncateText(text, limit) {
+      const words = text.split(" ");
+      if (words.length > limit) {
+        return words.slice(0, limit).join(" ") + "...";
+      }
+      return text;
+    }
+
+    // Функція для відкриття модального вікна з повною інформацією про рецепт
+    function openModal(recipe) {
+      const modal = document.createElement("div");
+      modal.classList.add("modal");
+
+      const modalContent = document.createElement("div");
+      modalContent.classList.add("modal-content");
+
+      const recipeTitle = document.createElement("h1");
+      recipeTitle.textContent = recipe.title;
+      modalContent.appendChild(recipeTitle);
+
+      const ingredientsParagraph = document.createElement("p");
+      const ingredientsText = recipe.ingredients.join(", ");
+      ingredientsParagraph.innerHTML = "Інгредієнти: " + ingredientsText;
+      modalContent.appendChild(ingredientsParagraph);
+
+      const descriptionParagraph = document.createElement("p");
+      descriptionParagraph.textContent = "Опис: " + recipe.description;
+      modalContent.appendChild(descriptionParagraph);
+
+      modal.appendChild(modalContent);
+
+      document.body.appendChild(modal);
+
+      // Додайте обробник події, щоб закрити модальне вікно при натисканні на будь-який області поза вмістом модального вікна
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+    }
+
+    // Функція для закриття модального вікна
+    function closeModal() {
+      const modal = document.querySelector(".modal");
+      document.body.removeChild(modal);
     }
 
     function addRecipeToDb(title, user) {
