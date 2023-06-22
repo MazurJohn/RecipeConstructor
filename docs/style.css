@@ -44,7 +44,7 @@ ul li:hover {
 
 .registration {
   z-index: 10;
-  background: #fad744;
+  background: #dde1e7;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -56,11 +56,12 @@ ul li:hover {
 .reg-screen {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 300px;
-  background: #ef5455;
-  border: 1px solid #2b3252;
+  background: #dde1e7;
   border-radius: 5px;
-  box-shadow: 5px 5px 1px 1px;
+  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+    5px 5px 9px rgba(94, 104, 121, 0.3);
 }
 
 .reg-screen h1 {
@@ -69,9 +70,17 @@ ul li:hover {
   font-size: 26px;
 }
 
+.reg-screen input {
+  box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
+    inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+  background: #dde1e7;
+  border-radius: 5px;
+}
+
 #registration-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #registration-form label,
@@ -85,19 +94,24 @@ button {
 
 #registration-form button {
   margin-bottom: 10px;
-  background: #fad744;
+  width: 250px;
+  border-radius: 5px;
+  background: #dde1e7;
   cursor: pointer;
+  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+    5px 5px 9px rgba(94, 104, 121, 0.3);
 }
 
 .switch-login {
   text-align: center;
-  color: #ffffff;
+  color: #2b3252;
   cursor: pointer;
+  padding: 10px;
 }
 
 .login {
   z-index: 9;
-  background: #fad744;
+  background: #dde1e7;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -109,11 +123,12 @@ button {
 .log-screen {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 300px;
-  background: #ef5455;
-  border: 1px solid #2b3252;
+  background: #dde1e7;
   border-radius: 5px;
-  box-shadow: 5px 5px 1px 1px;
+  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+    5px 5px 9px rgba(94, 104, 121, 0.3);
 }
 
 .log-screen h1 {
@@ -122,9 +137,17 @@ button {
   font-size: 26px;
 }
 
+.log-screen input {
+  box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
+    inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+  background: #dde1e7;
+  border-radius: 5px;
+}
+
 #login-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 #login-form label,
@@ -138,14 +161,18 @@ button {
 
 #login-form button {
   margin-bottom: 10px;
-  background: #fad744;
+  background: #dde1e7;
   cursor: pointer;
+  width: 250px;
+  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+    5px 5px 9px rgba(94, 104, 121, 0.3);
 }
 
 .switch-signup {
   text-align: center;
-  color: #ffffff;
+  color: #2b3252;
   cursor: pointer;
+  padding: 10px;
 }
 
 .side-panel {
