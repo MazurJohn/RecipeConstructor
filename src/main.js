@@ -287,8 +287,21 @@ onAuthStateChanged(auth, (user) => {
 
     function showModalAddRecipe() {
       const modalAdd = document.querySelector(".modal-add");
+      const modalAddWindow = document.querySelector(".modal-add-window");
       modalAdd.style.display =
         modalAdd.style.display === "flex" ? "none" : "flex";
+      modalAddWindow.style.display =
+        modalAddWindow.style.display === "flex" ? "none" : "flex";
+
+      modalAddWindow.addEventListener("click", hideModalAddRecipe);
+    }
+
+    function hideModalAddRecipe() {
+      const modalAdd = document.querySelector(".modal-add");
+      const modalAddWindow = document.querySelector(".modal-add-window");
+
+      modalAdd.style.display = "none";
+      modalAddWindow.style.display = "none";
     }
 
     addRecipe.addEventListener("click", showModalAddRecipe);
@@ -323,6 +336,7 @@ onAuthStateChanged(auth, (user) => {
         recipeObj["ingredients"] = ingredientsArr;
 
         addRecipeToDb(recipeObj.title, uid);
+        hideModalAddRecipe();
       } else {
         alert("Заповніть всі поля!");
       }
