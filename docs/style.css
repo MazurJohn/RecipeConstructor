@@ -302,8 +302,9 @@ button {
 }
 
 .highlighted-ingredient {
-  color: green;
-  font-weight: bold;
+  color: #fff;
+  background: #9cd4ac;
+  border-radius: 10px;
 }
 
 .ingredients-main {
@@ -329,8 +330,20 @@ button {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+}
+
+.close-btn {
+  background: none;
+  cursor: pointer;
+  color: #fff;
+  transform: rotate(90deg);
+  padding: 0;
+  letter-spacing: 10px;
+  margin: -40px;
 }
 
 .modal-add {
@@ -339,19 +352,17 @@ button {
   width: 500px;
   background-color: #dde1e7;
   padding: 20px;
-  box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
-    5px 5px 9px rgba(94, 104, 121, 0.3);
-  transition: all 0.5s ease-in-out;
 }
 
 .modal-add h1 {
   font-size: 26px;
+  padding-left: 30px;
 }
 
 .modal-add input,
 textarea {
   width: 100%;
-  padding: 0;
+  padding: 10px;
   font-size: 16px;
   background: #dde1e7;
   border-radius: 0px 20px 20px 0px;
@@ -363,6 +374,27 @@ textarea {
 
 .ingr-field input {
   margin-top: 10px;
+}
+
+.ingredient-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ingredient-field {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.remove-btn {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 8px;
 }
 
 .add-btn {
@@ -380,7 +412,7 @@ textarea {
 }
 
 .add-all-btn {
-  background: #dde1e7;
+  background: #9cd4ac;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -393,11 +425,7 @@ textarea {
 .modal-add h1,
 label {
   margin: 10px;
-}
-
-.modal-add button {
-  margin-left: 10px;
-  margin-bottom: 10px;
+  margin-left: -10px;
 }
 
 #recipe-desc {

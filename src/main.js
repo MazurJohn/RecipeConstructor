@@ -288,12 +288,13 @@ onAuthStateChanged(auth, (user) => {
     function showModalAddRecipe() {
       const modalAdd = document.querySelector(".modal-add");
       const modalAddWindow = document.querySelector(".modal-add-window");
+      const closeWindow = document.querySelector(".close-btn");
       modalAdd.style.display =
         modalAdd.style.display === "flex" ? "none" : "flex";
       modalAddWindow.style.display =
         modalAddWindow.style.display === "flex" ? "none" : "flex";
 
-      modalAddWindow.addEventListener("click", hideModalAddRecipe);
+      closeWindow.addEventListener("click", hideModalAddRecipe);
     }
 
     function hideModalAddRecipe() {
@@ -308,11 +309,24 @@ onAuthStateChanged(auth, (user) => {
 
     function addIngredientField() {
       const ingredientField = document.querySelector(".ingr-field");
-      ingredientField.insertAdjacentHTML(
-        "beforeend",
-        `<input placeholder="${countField}. (Додавайте по одному інгредієнту)" class="ingredient-field" type="text" />`
-      );
-      countField += 1;
+      const newIngredientField = document.createElement("div");
+      newIngredientField.classList.add("ingredient-container");
+
+      const inputField = document.createElement("input");
+      inputField.placeholder = `(Додавайте по одному інгредієнту)`;
+      inputField.classList.add("ingredient-field");
+      newIngredientField.appendChild(inputField);
+
+      const removeBtn = document.createElement("p");
+      removeBtn.textContent = "Видалити";
+      removeBtn.classList.add("remove-btn");
+      newIngredientField.appendChild(removeBtn);
+
+      ingredientField.appendChild(newIngredientField);
+
+      removeBtn.addEventListener("click", () => {
+        ingredientField.removeChild(newIngredientField);
+      });
     }
 
     addIngredientFieldBtn.addEventListener("click", addIngredientField);
