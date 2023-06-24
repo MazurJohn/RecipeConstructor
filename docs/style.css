@@ -163,6 +163,7 @@ button {
   margin-bottom: 10px;
   background: #dde1e7;
   cursor: pointer;
+  border-radius: 5px;
   width: 250px;
   box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
     5px 5px 9px rgba(94, 104, 121, 0.3);

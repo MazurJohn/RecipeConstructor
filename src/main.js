@@ -377,6 +377,7 @@ registrationForm.addEventListener("submit", async function (event) {
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const userName = document.getElementById("user").value;
 
   try {
     // Реєстрація користувача з використанням електронної пошти та пароля
@@ -388,6 +389,13 @@ registrationForm.addEventListener("submit", async function (event) {
     // Користувач успішно зареєстрований
     const user = userCredential.user;
     console.log("Користувач успішно зареєстрований:", user);
+    addNewUserToDb(user.uid, userName);
+
+    function addNewUserToDb(user, userName) {
+      update(ref(database, "user/" + user), {
+        userName: [userName],
+      });
+    }
 
     const hideRegistrationScreen = document.querySelector(".registration");
     hideRegistrationScreen.style.display = "none";
