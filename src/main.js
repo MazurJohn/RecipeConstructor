@@ -5,6 +5,8 @@ import {
   update,
   onValue,
   orderByChild,
+  get,
+  child,
 } from "firebase/database";
 import {
   getAuth,
@@ -175,6 +177,7 @@ onAuthStateChanged(auth, (user) => {
 
     function searchRecipeInDb() {
       const recipesRef = ref(database, "recipe");
+      const usersRef = ref(database, "user");
       const recipeInfoElement = document.querySelector(".recipe-info");
       recipeInfoElement.innerHTML = "";
 
@@ -208,6 +211,10 @@ onAuthStateChanged(auth, (user) => {
               });
               recipeDiv.appendChild(recipeTitle);
 
+              const fromWhoRecipe = document.createElement("h4");
+              fromWhoRecipe.textContent = "Loading..."; // Початкове значення "Loading..."
+              recipeDiv.appendChild(fromWhoRecipe);
+
               const ingredientsParagraph = document.createElement("p");
               const ingredientsText = recipeIngredients
                 .map((ingredient) =>
@@ -226,6 +233,21 @@ onAuthStateChanged(auth, (user) => {
               recipeDiv.appendChild(descriptionParagraph);
 
               recipeInfoElement.appendChild(recipeDiv);
+
+              // Отримання імені користувача з бази даних
+              get(child(usersRef, userId))
+                .then((snapshot) => {
+                  if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    const userName = userData.userName[0]; // Оскільки `userName` масив, ми беремо перший елемент
+                    fromWhoRecipe.textContent = `Від: ${userName}`;
+                  } else {
+                    fromWhoRecipe.textContent = "Unknown User";
+                  }
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
             }
           }
         }
