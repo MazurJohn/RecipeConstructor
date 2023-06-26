@@ -240,9 +240,9 @@ onAuthStateChanged(auth, (user) => {
                   if (snapshot.exists()) {
                     const userData = snapshot.val();
                     const userName = userData.userName[0]; // Оскільки `userName` масив, ми беремо перший елемент
-                    fromWhoRecipe.textContent = `Від: ${userName}`;
+                    fromWhoRecipe.innerHTML = `Від: <span class="username">${userName}</span>`;
                   } else {
-                    fromWhoRecipe.textContent = "Unknown User";
+                    fromWhoRecipe.innerHTML = "Від: Unknown User";
                   }
                 })
                 .catch((error) => {

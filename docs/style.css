@@ -308,6 +308,10 @@ button {
   border-radius: 10px;
 }
 
+.username {
+  color: rgb(115, 84, 239);
+}
+
 .ingredients-main {
   background: #dde1e7;
   text-align: center;
