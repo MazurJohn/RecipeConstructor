@@ -92,6 +92,7 @@ onAuthStateChanged(auth, (user) => {
       sortedIngredients.forEach((ingredient) => {
         const paragraph = document.createElement("p");
         paragraph.classList.add("ingr-item");
+        paragraph.classList.add("for-search");
         paragraph.textContent = ingredient;
 
         // Додавання атрибутів для перетягування (drag)
@@ -390,6 +391,34 @@ onAuthStateChanged(auth, (user) => {
     showRegistrationScreen.style.display = "flex";
     // Додайте додаткову логіку або перенаправлення користувача
   }
+});
+
+function search() {
+  let input, filter, p, i, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toLowerCase();
+  p = document.getElementsByClassName("for-search");
+
+  if (filter === "") {
+    for (i = 0; i < p.length; i++) {
+      p[i].style.display = "";
+    }
+    return;
+  }
+
+  for (i = 0; i < p.length; i++) {
+    txtValue = p[i].textContent || p[i].innerText;
+    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+      p[i].style.display = "";
+    } else {
+      p[i].style.display = "none";
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("searchInput");
+  input.addEventListener("keyup", search);
 });
 
 // Обробка форми реєстрації при надсиланні
