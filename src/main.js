@@ -31,6 +31,15 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth(app);
 
+window.addEventListener("load", function () {
+  var loader = document.getElementById("loader");
+  loader.style.display = "flex"; // Показуємо екран завантаження
+
+  setTimeout(function () {
+    loader.style.display = "none"; // Ховаємо екран завантаження після 1 секунди
+  }, 1000);
+});
+
 // Функція наглядача стану автентифікації
 onAuthStateChanged(auth, (user) => {
   if (user) {
