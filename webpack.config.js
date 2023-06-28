@@ -25,6 +25,17 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "svg-url-loader",
+            options: {
+              limit: 8192, // Якщо файл менше 8kb, то буде завантажений як Data URI
+            },
+          },
+        ],
+      },
       // Додайте інші правила для обробки різних типів файлів, якщо необхідно
     ],
   },
