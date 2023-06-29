@@ -539,6 +539,7 @@ logoutButton.addEventListener("click", async function () {
   try {
     // Вихід користувача
     await signOut(auth);
+    location.reload();
     console.log("Користувач вийшов з системи");
     // Додайте додаткову логіку або перенаправлення користувача
   } catch (error) {
