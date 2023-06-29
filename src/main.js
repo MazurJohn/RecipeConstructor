@@ -402,6 +402,20 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+window.addEventListener("scroll", function () {
+  let scrollPosition = window.scrollY;
+
+  let background = document.querySelector(".back-svg");
+  let layer1 = document.querySelector(".orange-land");
+  let layer2 = document.querySelector(".walnut-land");
+  let foreground = document.querySelector(".flavor_fusion");
+
+  background.style.transform = "translateY(" + -scrollPosition * 0.8 + "px)";
+  layer1.style.transform = "translateY(" + -scrollPosition * 1.2 + "px)";
+  layer2.style.transform = "translateY(" + -scrollPosition * 1.2 + "px)";
+  foreground.style.transform = "translateY(" + -scrollPosition * 2 + "px)";
+});
+
 function search() {
   let input, filter, p, i, txtValue;
   input = document.getElementById("searchInput");
