@@ -374,6 +374,88 @@ button {
   height: 100vh;
 }
 
+.arrow {
+  background-image: url(down.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  transform: rotate(-70deg);
+  top: 37%;
+  left: 40%;
+  z-index: 2;
+}
+
+.mark {
+  background-image: url(check-mark.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 58%;
+  left: 58%;
+  z-index: 2;
+}
+
+.download {
+  background-image: url(download.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 77%;
+  left: 50%;
+  z-index: 2;
+}
+
+.circle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dde1e7;
+  font-size: 40px;
+  font-family: "Righteous", cursive;
+  top: 50%;
+  left: 30%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: black;
+  border: 5px solid red;
+  border-right-color: transparent;
+  overflow-x: visible;
+}
+
+.two {
+  top: 60%;
+  left: 35%;
+}
+
+.three {
+  top: 70%;
+  left: 40%;
+}
+
+.banner {
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  color: #dde1e7;
+  display: flex;
+  align-items: center;
+  top: 50%;
+  left: 100%;
+  transform: translate(-10px, -50%);
+  width: 400px;
+  height: 52px;
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 0, 0) 200px,
+    rgba(0, 0, 0, 0)
+  );
+}
+
 .side-panel {
   display: flex;
   background-color: #dde1e7;
