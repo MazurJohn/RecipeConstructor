@@ -416,6 +416,28 @@ window.addEventListener("scroll", function () {
   foreground.style.transform = "translateY(" + -scrollPosition * 2 + "px)";
 });
 
+function handleScroll() {
+  const leftContainer = document.querySelector(".side-panel");
+  const rightContainer = document.querySelector(".main-panel");
+
+  const scrollPosition = document.documentElement.scrollTop;
+  const windowHeight = window.innerHeight;
+
+  if (scrollPosition + windowHeight >= leftContainer.offsetTop) {
+    leftContainer.classList.add("visible");
+  } else {
+    leftContainer.classList.remove("visible");
+  }
+
+  if (scrollPosition + windowHeight >= rightContainer.offsetTop) {
+    rightContainer.classList.add("visible");
+  } else {
+    rightContainer.classList.remove("visible");
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
+
 function search() {
   let input, filter, p, i, txtValue;
   input = document.getElementById("searchInput");

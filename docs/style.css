@@ -626,6 +626,7 @@ button {
   align-items: center;
   justify-content: center;
   overflow-y: auto;
+  z-index: 3;
 }
 
 .close-btn {
@@ -772,4 +773,21 @@ label {
 
 .animate-out {
   animation: slideOut 0.3s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hiddenRight {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0%);
 }
