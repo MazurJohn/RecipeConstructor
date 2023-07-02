@@ -10,6 +10,10 @@
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #dde1e7;
   background-size: cover;
@@ -101,6 +105,16 @@ ul li {
   color: #2b3252;
   font-weight: bold;
   cursor: pointer;
+}
+
+li a {
+  color: #2b3252;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: rgb(131, 131, 131);
 }
 
 ul li:hover {
@@ -301,6 +315,8 @@ button {
 .landing {
   width: 100%;
   height: 100vh;
+  perspective: 900px;
+  overflow-y: hidden;
 }
 
 .flavor_fusion {
@@ -309,7 +325,7 @@ button {
   color: black;
   font-size: 60px;
   left: 5%;
-  top: 12%;
+  top: 8%;
   transition: all 0s ease-in-out;
 }
 
@@ -377,6 +393,11 @@ button {
   border: 5px solid rgb(141, 227, 12);
   border-right-color: transparent;
   overflow-x: visible;
+  cursor: pointer;
+}
+
+.circle:hover {
+  transform: rotateY(2deg);
 }
 
 .two {
@@ -406,6 +427,19 @@ button {
     rgb(0, 0, 0) 250px,
     rgba(0, 0, 0, 0)
   );
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back img {
+  width: 70px;
+  height: 30px;
+  position: absolute;
+  bottom: -7%;
 }
 
 .side-panel {
@@ -538,7 +572,8 @@ button {
 .highlighted-ingredient {
   color: #fff;
   background: #9cd4ac;
-  border-radius: 10px;
+  border-radius: 3px;
+  padding: 0 3px 0 3px;
 }
 
 .username {
