@@ -402,6 +402,21 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+const getFirstHint = document.getElementById("getHint");
+const firstHint = document.getElementById("firstHint");
+
+getFirstHint.addEventListener("mouseover", function () {
+  firstHint.classList.add("showEl");
+});
+
+getFirstHint.addEventListener("mouseout", function () {
+  firstHint.classList.add("hideEl");
+  setTimeout(function () {
+    firstHint.classList.remove("hideEl");
+    firstHint.classList.remove("showEl");
+  }, 500);
+});
+
 window.addEventListener("scroll", function () {
   let scrollPosition = window.scrollY;
 
