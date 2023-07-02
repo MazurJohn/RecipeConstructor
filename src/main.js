@@ -402,7 +402,19 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-const getFirstHint = document.getElementById("getHint");
+function getHint(hint) {
+  hint.classList.add("showEl");
+}
+
+function removeHint(hint) {
+  hint.classList.add("hideEl");
+  setTimeout(function () {
+    hint.classList.remove("hideEl");
+    hint.classList.remove("showEl");
+  }, 500);
+}
+
+const getFirstHint = document.getElementById("getFirstHint");
 const firstHint = document.getElementById("firstHint");
 
 getFirstHint.addEventListener("mouseover", function () {
