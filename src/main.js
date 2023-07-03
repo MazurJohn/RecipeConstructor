@@ -415,10 +415,20 @@ function removeHint(hint) {
 }
 
 const getFirstHint = document.getElementById("getFirstHint");
+const getSecondHint = document.getElementById("getSecondHint");
+const getThirdHint = document.getElementById("getThirdHint");
 const firstHint = document.getElementById("firstHint");
+const secondHint = document.getElementById("secondHint");
+const thirdHint = document.getElementById("thirdHint");
 
 getFirstHint.addEventListener("mouseover", function () {
   firstHint.classList.add("showEl");
+});
+getSecondHint.addEventListener("mouseover", function () {
+  secondHint.classList.add("showEl");
+});
+getThirdHint.addEventListener("mouseover", function () {
+  thirdHint.classList.add("showEl");
 });
 
 getFirstHint.addEventListener("mouseout", function () {
@@ -426,6 +436,20 @@ getFirstHint.addEventListener("mouseout", function () {
   setTimeout(function () {
     firstHint.classList.remove("hideEl");
     firstHint.classList.remove("showEl");
+  }, 500);
+});
+getSecondHint.addEventListener("mouseout", function () {
+  secondHint.classList.add("hideEl");
+  setTimeout(function () {
+    secondHint.classList.remove("hideEl");
+    secondHint.classList.remove("showEl");
+  }, 500);
+});
+getThirdHint.addEventListener("mouseout", function () {
+  thirdHint.classList.add("hideEl");
+  setTimeout(function () {
+    thirdHint.classList.remove("hideEl");
+    thirdHint.classList.remove("showEl");
   }, 500);
 });
 
