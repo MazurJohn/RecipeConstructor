@@ -402,70 +402,19 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-function getHint(hint) {
-  hint.classList.add("showEl");
-}
+// window.addEventListener("scroll", function () {
+//   let scrollPosition = window.scrollY;
 
-function removeHint(hint) {
-  hint.classList.add("hideEl");
-  setTimeout(function () {
-    hint.classList.remove("hideEl");
-    hint.classList.remove("showEl");
-  }, 500);
-}
+//   let background = document.querySelector(".back-svg");
+//   let layer1 = document.querySelector(".orange-land");
+//   let layer2 = document.querySelector(".walnut-land");
+//   let foreground = document.querySelector(".flavor_fusion");
 
-const getFirstHint = document.getElementById("getFirstHint");
-const getSecondHint = document.getElementById("getSecondHint");
-const getThirdHint = document.getElementById("getThirdHint");
-const firstHint = document.getElementById("firstHint");
-const secondHint = document.getElementById("secondHint");
-const thirdHint = document.getElementById("thirdHint");
-
-getFirstHint.addEventListener("mouseover", function () {
-  firstHint.classList.add("showEl");
-});
-getSecondHint.addEventListener("mouseover", function () {
-  secondHint.classList.add("showEl");
-});
-getThirdHint.addEventListener("mouseover", function () {
-  thirdHint.classList.add("showEl");
-});
-
-getFirstHint.addEventListener("mouseout", function () {
-  firstHint.classList.add("hideEl");
-  setTimeout(function () {
-    firstHint.classList.remove("hideEl");
-    firstHint.classList.remove("showEl");
-  }, 500);
-});
-getSecondHint.addEventListener("mouseout", function () {
-  secondHint.classList.add("hideEl");
-  setTimeout(function () {
-    secondHint.classList.remove("hideEl");
-    secondHint.classList.remove("showEl");
-  }, 500);
-});
-getThirdHint.addEventListener("mouseout", function () {
-  thirdHint.classList.add("hideEl");
-  setTimeout(function () {
-    thirdHint.classList.remove("hideEl");
-    thirdHint.classList.remove("showEl");
-  }, 500);
-});
-
-window.addEventListener("scroll", function () {
-  let scrollPosition = window.scrollY;
-
-  let background = document.querySelector(".back-svg");
-  let layer1 = document.querySelector(".orange-land");
-  let layer2 = document.querySelector(".walnut-land");
-  let foreground = document.querySelector(".flavor_fusion");
-
-  background.style.transform = "translateY(" + -scrollPosition * 0.8 + "px)";
-  layer1.style.transform = "translateY(" + -scrollPosition * 1.2 + "px)";
-  layer2.style.transform = "translateY(" + -scrollPosition * 1.2 + "px)";
-  foreground.style.transform = "translateY(" + -scrollPosition * 2 + "px)";
-});
+//   background.style.transform = "translateY(" + -scrollPosition * 0.8 + "px)";
+//   layer1.style.transform = "translateY(" + -scrollPosition * 1.2 + "px)";
+//   layer2.style.transform = "translateY(" + -scrollPosition * 1.2 + "px)";
+//   foreground.style.transform = "translateY(" + -scrollPosition * 2 + "px)";
+// });
 
 function handleScroll() {
   const leftContainer = document.querySelector(".side-panel");
