@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: "Ubuntu", sans-serif;
+  text-rendering: optimizeLegibility;
   color: #2b3252;
   transition: all 0.3s ease-in-out;
   overflow-x: hidden;
@@ -17,6 +18,10 @@ html {
 body {
   background: #dde1e7;
   background-size: cover;
+}
+
+input:focus {
+  outline: none;
 }
 
 #loader {
@@ -172,7 +177,7 @@ ul li:hover {
 .orange {
   width: 150px;
   position: fixed;
-  z-index: 13;
+  z-index: 11;
   top: 8%;
   right: 35%;
   filter: blur(1px) drop-shadow(0px 30px 10px rgba(0, 0, 0, 0.3));
@@ -197,56 +202,68 @@ ul li:hover {
   top: 12%;
 }
 
-.reg-screen {
+.reg-screen,
+.log-screen {
   z-index: 12;
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  background: #fff;
+  justify-content: center;
+  width: 400px;
+  height: 500px;
+  background: #414141d2;
   border-radius: 5px;
 }
 
-.reg-screen h1 {
-  padding: 10px;
+.reg-screen h1,
+.log-screen h1 {
+  padding: 30px;
   text-align: center;
   font-size: 26px;
+  color: #dde1e7;
 }
 
-.reg-screen input {
-  background: #dde1e7;
-  border-radius: 5px;
+.reg-screen input,
+.log-screen input {
+  background: none;
+  border-bottom: 1px solid #939394;
 }
 
-#registration-form {
+#registration-form,
+#login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 #registration-form label,
 input,
 button {
   margin: 0;
-  padding: 10px;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
+  color: #dde1e7;
 }
 
 #registration-form button {
-  margin-bottom: 10px;
+  margin: 20px;
   width: 250px;
   border-radius: 5px;
-  background: #dde1e7;
-  cursor: pointer;
-}
-
-.switch-login {
-  text-align: center;
+  background: #76f366;
   color: #2b3252;
   cursor: pointer;
+  align-self: center;
+}
+
+.switch-login,
+.switch-signup {
+  text-align: center;
+  color: #dde1e7;
+  cursor: pointer;
   padding: 10px;
+  align-self: center;
+  text-decoration: underline;
 }
 
 .login {
@@ -260,56 +277,24 @@ button {
   align-items: center;
 }
 
-.log-screen {
-  z-index: 12;
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  align-items: center;
-  width: 300px;
-  background: #fff;
-  border-radius: 5px;
-}
-
-.log-screen h1 {
-  padding: 10px;
-  text-align: center;
-  font-size: 26px;
-}
-
-.log-screen input {
-  background: #dde1e7;
-  border-radius: 5px;
-}
-
-#login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #login-form label,
 input,
 button {
   margin: 0;
-  padding: 10px;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
+  color: #dde1e7;
+  padding: 10px;
 }
 
 #login-form button {
-  margin-bottom: 10px;
-  background: #dde1e7;
-  cursor: pointer;
-  border-radius: 5px;
+  margin: 20px;
   width: 250px;
-}
-
-.switch-signup {
-  text-align: center;
+  border-radius: 5px;
+  background: #76f366;
   color: #2b3252;
   cursor: pointer;
-  padding: 10px;
+  align-self: center;
 }
 
 .landing {
