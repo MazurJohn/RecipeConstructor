@@ -412,23 +412,23 @@ const thirdProgress = document.getElementById("thirdProgress");
 
 function firstAnimation() {
   thirdContainer.style.opacity = "0";
-  thirdProgress.style.display = "none";
   firstContainer.style.opacity = "1";
   firstProgress.style.display = "block";
+  thirdProgress.style.display = "none";
 }
 
 function secondAnimation() {
   firstContainer.style.opacity = "0";
-  firstProgress.style.display = "none";
   secondContainer.style.opacity = "1";
   secondProgress.style.display = "block";
+  firstProgress.style.display = "none";
 }
 
 function thirdAnimation() {
   secondContainer.style.opacity = "0";
-  secondProgress.style.display = "none";
   thirdContainer.style.opacity = "1";
   thirdProgress.style.display = "block";
+  secondProgress.style.display = "none";
 }
 
 function runAnimation() {
