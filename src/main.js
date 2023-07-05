@@ -402,6 +402,55 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+let isRunningAnimation = true;
+const firstContainer = document.getElementById("firstAnimation");
+const secondContainer = document.getElementById("secondAnimation");
+const thirdContainer = document.getElementById("thirdAnimation");
+const firstProgress = document.getElementById("firstProgress");
+const secondProgress = document.getElementById("secondProgress");
+const thirdProgress = document.getElementById("thirdProgress");
+
+function firstAnimation() {
+  thirdContainer.style.opacity = "0";
+  thirdProgress.style.display = "none";
+  firstContainer.style.opacity = "1";
+  firstProgress.style.display = "block";
+}
+
+function secondAnimation() {
+  firstContainer.style.opacity = "0";
+  firstProgress.style.display = "none";
+  secondContainer.style.opacity = "1";
+  secondProgress.style.display = "block";
+}
+
+function thirdAnimation() {
+  secondContainer.style.opacity = "0";
+  secondProgress.style.display = "none";
+  thirdContainer.style.opacity = "1";
+  thirdProgress.style.display = "block";
+}
+
+function runAnimation() {
+  if (!isRunningAnimation) {
+    return;
+  }
+
+  firstAnimation();
+
+  setTimeout(function () {
+    secondAnimation();
+
+    setTimeout(function () {
+      thirdAnimation();
+
+      setTimeout(runAnimation, 8000);
+    }, 8000);
+  }, 8000);
+}
+
+runAnimation();
+
 // window.addEventListener("scroll", function () {
 //   let scrollPosition = window.scrollY;
 

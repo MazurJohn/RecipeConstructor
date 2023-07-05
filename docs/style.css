@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@900&display=swap");
 
 * {
   margin: 0;
@@ -353,19 +354,34 @@ button {
 .text-container {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.text-animation {
+  opacity: 0;
+  transition: opacity 2s;
+  animation: slide-up 1s ease-in-out;
+}
+
+.link-container {
+  z-index: 20;
+  padding-bottom: 100px;
 }
 
 .progress-bar {
+  display: none;
+  transition: display 1s;
   margin: 30px 0 30px 0;
   height: 2px;
   width: 0;
   background-color: #dde1e7; /* Колір прогрес бару */
-  animation: fill-progress 5s ease forwards;
+  animation: fill-progress 8s ease forwards;
 }
 
 .big-info {
-  font-size: 66px;
-  font-weight: bolder;
+  font-size: 50px;
+  font-family: "Geologica", sans-serif;
 }
 
 .small-info {
@@ -386,9 +402,16 @@ button {
   cursor: pointer;
   color: #dde1e7;
   font-size: 20px;
+  font-weight: bold;
   padding-bottom: 80px;
   z-index: 20;
   justify-self: flex-start;
+}
+
+.link-img {
+  width: 25px;
+  filter: invert(80%);
+  padding: 5px 100px 0 160px;
 }
 
 @keyframes slide-up {
