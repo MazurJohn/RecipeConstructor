@@ -87,8 +87,8 @@ input:focus {
 
 .bottom-window {
   z-index: 11;
-  position: absolute;
-  display: none;
+  position: fixed;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -97,15 +97,12 @@ input:focus {
   bottom: 30px;
   right: 30px;
   border: 1px solid #2b3252;
-  border-radius: 5px;
-  width: 300px;
-  height: 70px;
-  box-shadow: 5px 5px 1px 1px;
+  border-radius: 10px;
   transition: all 0.5s ease-in-out;
 }
 
 .bottom-window p {
-  margin: 10px;
+  margin: 20px;
   font-size: 20px;
 }
 
@@ -193,6 +190,7 @@ input:focus {
   background: none;
   border: none;
   border-bottom: 1px solid #fbfeeb;
+  color: #fbfeeb;
   font-size: 18px;
   margin-bottom: 20px;
   padding-top: 10px;
@@ -240,6 +238,7 @@ input:focus {
 @media only screen and (max-width: 767px) {
   .reg-screen,
   .log-screen {
-    width: 100vw;
+    width: 100%;
+    height: 100%;
   }
 }
