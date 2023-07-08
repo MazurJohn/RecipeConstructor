@@ -40,6 +40,10 @@ window.addEventListener("load", function () {
   }, 1000);
 });
 
+document.querySelector(".burger").addEventListener("click", function () {
+  document.querySelector(".mobile-menu").classList.toggle("active");
+});
+
 // Функція наглядача стану автентифікації
 onAuthStateChanged(auth, (user) => {
   if (user) {
