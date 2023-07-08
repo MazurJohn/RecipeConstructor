@@ -58,6 +58,7 @@ onAuthStateChanged(auth, (user) => {
     console.log("Додаткові дані користувача:", uid);
 
     const addRecipe = document.querySelector(".add-recipe");
+    const addRecipeTwo = document.querySelector(".add-recipe-two");
     const addIngredientFieldBtn = document.querySelector(".add-btn");
     const saveNewRecipeBtn = document.querySelector(".add-all-btn");
     let countField = 2;
@@ -342,6 +343,7 @@ onAuthStateChanged(auth, (user) => {
     }
 
     addRecipe.addEventListener("click", showModalAddRecipe);
+    addRecipeTwo.addEventListener("click", showModalAddRecipe);
 
     function addIngredientField() {
       const ingredientField = document.querySelector(".ingr-field");
@@ -354,7 +356,7 @@ onAuthStateChanged(auth, (user) => {
       newIngredientField.appendChild(inputField);
 
       const removeBtn = document.createElement("p");
-      removeBtn.textContent = "Видалити";
+      removeBtn.textContent = "✖";
       removeBtn.classList.add("remove-btn");
       newIngredientField.appendChild(removeBtn);
 
