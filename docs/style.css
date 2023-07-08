@@ -438,6 +438,11 @@ label {
   height: 200px;
 }
 
+.side-panel h1,
+.main-panel h1 {
+  font-size: 10px;
+}
+
 /* Стилі для мобільних екранів */
 @media only screen and (max-width: 767px) {
   .reg-screen,
