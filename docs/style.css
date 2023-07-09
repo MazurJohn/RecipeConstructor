@@ -438,6 +438,121 @@ label {
   height: 200px;
 }
 
+.landing {
+  background: no-repeat url(landingback.jpg);
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 115px);
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing::before {
+  content: "";
+  position: absolute;
+  top: 115px;
+  width: 100%;
+  height: calc(100vh - 115px);
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.text-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+}
+
+.text-animation {
+  width: 30%;
+  opacity: 0;
+  transition: opacity 2s;
+  animation: slide-up 1s ease-in-out;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+  z-index: 20;
+}
+
+.progress-bar {
+  display: none;
+  transition: display 2s;
+  height: 2px;
+  width: 0;
+  background-color: #fbfeeb;
+  animation: fill-progress 8s ease forwards;
+}
+
+.big-info {
+  position: absolute;
+  left: 100px;
+  top: 40%;
+  font-size: 50px;
+  font-family: "Geologica", sans-serif;
+}
+
+.small-info {
+  position: absolute;
+  left: 102px;
+  top: 50%;
+  width: 80%;
+}
+
+.text-line {
+  color: #fbfeeb;
+  opacity: 1;
+  transition: opacity 1s;
+  animation: slide-up 1s ease-in-out;
+  animation-delay: 1s; /* Затримка перед початком анімації */
+}
+
+.link-land {
+  text-decoration: none;
+  cursor: pointer;
+  color: #fbfeeb;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 20;
+  justify-self: flex-start;
+}
+
+.link-img {
+  padding-left: 100px;
+  width: 20px;
+  filter: invert(80%);
+  vertical-align: bottom;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fill-progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 99%;
+  }
+}
+
+.back img {
+  width: 70px;
+}
+
 .side-panel h1,
 .main-panel h1 {
   font-size: 10px;
@@ -479,11 +594,16 @@ label {
     font-size: 12px;
   }
 
-  .link-land {
-    width: 50px;
+  .modal-add {
+    border-radius: 0;
   }
 
-  img {
-    width: 50px;
+  .landing {
+    height: calc(100vh - 100px);
+  }
+
+  .landing::before {
+    top: 100px;
+    height: calc(100vh - 100px);
   }
 }
