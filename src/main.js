@@ -61,7 +61,6 @@ onAuthStateChanged(auth, (user) => {
     const addRecipeTwo = document.querySelector(".add-recipe-two");
     const addIngredientFieldBtn = document.querySelector(".add-btn");
     const saveNewRecipeBtn = document.querySelector(".add-all-btn");
-    let countField = 2;
 
     const ingredientsArr = [];
     const recipeObj = new Object();

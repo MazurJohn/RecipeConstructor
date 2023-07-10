@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Ubuntu", sans-serif;
+  overflow-y: hidden;
 }
 
 #loader {
@@ -325,10 +326,6 @@ header {
   margin: 0 20px 0 50px;
 }
 
-.main-screen {
-  display: flex;
-}
-
 .modal-add-window {
   position: fixed;
   top: 0;
@@ -549,13 +546,201 @@ label {
   }
 }
 
-.back img {
-  width: 70px;
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  width: 100%;
+  border: none;
 }
 
-.side-panel h1,
+.back img {
+  width: 70px;
+  height: 30px;
+  filter: invert(80%);
+}
+
+.main-screen {
+  display: flex;
+  background-color: black;
+  border: none;
+  overflow-y: hidden;
+}
+
+.side-panel {
+  display: flex;
+  background-color: #232323;
+  flex-direction: column;
+  width: 20%;
+  height: 90vh;
+  align-items: center;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.side-panel h1 {
+  color: #fbfeeb;
+  font-size: 20px;
+  font-weight: 600;
+  height: 30px;
+}
+
+.side-panel input {
+  width: 80%;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fbfeeb;
+}
+
+.ingredients {
+  background: #232323;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.ingr-item {
+  background: #fbfeeb;
+  width: 90%;
+  border-radius: 5px;
+  width: 85%;
+  margin: 4px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-panel {
+  width: 80%;
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  background-color: #232323;
+  flex-direction: row;
+  margin: 20px;
+  border-radius: 5px;
+}
+
 .main-panel h1 {
-  font-size: 10px;
+  color: #fbfeeb;
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.construct {
+  width: 25%;
+  height: 95%;
+}
+
+.recipe-info {
+  width: 70%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.recipe-info div {
+  padding: 20px;
+  margin: 20px;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.recipe-info h2 {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal-content {
+  background-color: #fbfeeb;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  text-align: center;
+  cursor: default;
+}
+
+.modal h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  margin-bottom: 10px;
+}
+
+.highlighted-ingredient {
+  color: #fbfeeb;
+  background: #9cd4ac;
+  border-radius: 3px;
+  padding: 0 3px 0 3px;
+}
+
+.username {
+  color: rgb(115, 84, 239);
+}
+
+.ingredients-main {
+  background: #1a1a1a;
+  text-align: center;
+  color: #939394;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2px;
+  padding-left: 0;
+  width: 100%;
+  margin-top: 20px;
+  height: 92%;
+}
+
+.ingredients-main .ingr-item {
+  background-color: #fff;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hiddenRight {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0%);
 }
 
 /* Стилі для мобільних екранів */
