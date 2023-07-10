@@ -477,11 +477,12 @@ label {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-around;
-  z-index: 20;
+  z-index: 10;
 }
 
 .progress-bar {
   display: none;
+  margin-bottom: 20px;
   transition: display 2s;
   height: 2px;
   width: 0;
@@ -518,7 +519,6 @@ label {
   color: #fbfeeb;
   font-size: 20px;
   font-weight: bold;
-  z-index: 20;
   justify-self: flex-start;
 }
 
@@ -578,6 +578,7 @@ label {
     display: flex;
     position: absolute;
     right: 0;
+    z-index: 1;
   }
 
   header {
@@ -596,6 +597,7 @@ label {
 
   .modal-add {
     border-radius: 0;
+    z-index: 15;
   }
 
   .landing {
@@ -608,16 +610,17 @@ label {
   }
 
   .text-container {
-    height: 80%;
+    height: 70%;
   }
 
   .link-container {
     flex-direction: column;
     align-items: center;
+    z-index: 1;
   }
 
   .link-land {
-    padding-bottom: 40px;
+    padding-bottom: 20px;
   }
 
   .big-info {
@@ -630,5 +633,9 @@ label {
     font-size: 15px;
     left: 41px;
     top: 26%;
+  }
+
+  .progress-bar {
+    margin-bottom: 0;
   }
 }
